@@ -9,4 +9,14 @@ export class PhotoController {
   findAll() {
     return this.photoService.findAll();
   }
+
+  @Get('/add')
+  create() {
+    return this.photoService.create();
+  }
+
+  @Get('/add500')
+  create500() {
+    return this.photoService.add500();
+  }
 }

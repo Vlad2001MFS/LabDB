@@ -13,4 +13,18 @@ export class PhotoService {
   async findAll(): Promise<Photo[]> {
     return this.photoRepository.find();
   }
+
+  async add500() {
+    for (let i = 1; i < 500000; i++) {
+      console.log(i);
+      await this.create();
+    }
+  }
+
+  async create(): Promise<Photo> {
+    return this.photoRepository.save({
+      name: 'имя',
+      name1: 'имя',
+    });
+  }
 }
