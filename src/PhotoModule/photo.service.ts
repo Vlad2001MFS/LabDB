@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { User } from '../entity/user.entity';
 import { Photo } from '../entity/photo.entity';
+import { Order } from "../entity/order.entity";
 
 @Injectable()
 export class PhotoService {
@@ -23,8 +25,8 @@ export class PhotoService {
 
   async create(): Promise<Photo> {
     return this.photoRepository.save({
-      name: 'имя',
-      name1: 'имя',
+      name: 'Фото пользователя',
+      name1: 'Путь к имени пользователя',
     });
   }
 }

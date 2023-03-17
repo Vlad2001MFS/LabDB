@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn, ManyToOne
+} from "typeorm";
+import { User } from './user.entity';
 
 @Entity()
 export class Photo {
@@ -11,4 +18,9 @@ export class Photo {
   @Column({ length: 500 })
   name1: string;
 
+  @ManyToOne((type) => User, (user) => user.orders)
+  Photo: Photo;
+
+  @Column({ default: 2 })
+  photoId: number;
 }
