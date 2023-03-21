@@ -5,7 +5,7 @@ import {
   OneToMany,
   ManyToOne,
 } from 'typeorm';
-import { typeOrder } from './typeOrder.entity';
+import { statusOrder } from './statusOrder.entity';
 import { User } from './user.entity';
 
 @Entity('Order')
@@ -19,12 +19,12 @@ export class Order {
   @ManyToOne((type) => User, (user) => user.orders)
   User: User;
 
-  @ManyToOne((type) => typeOrder, (typeOrder) => typeOrder.orders)
-  TypesOrder: typeOrder;
+  @ManyToOne((type) => statusOrder, (statusOrder) => statusOrder.orders)
+  StatusOrder: statusOrder;
 
   @Column({ default: 1 })
   userId: number;
 
   @Column({ default: 2 })
-  typesOrderId: number;
+  statusOrderId: number;
 }

@@ -3,24 +3,25 @@ import {
   Column,
   PrimaryGeneratedColumn,
   OneToOne,
-  JoinColumn, ManyToOne
-} from "typeorm";
+  JoinColumn,
+  ManyToOne,
+} from 'typeorm';
 import { User } from './user.entity';
 
 @Entity()
-export class Photo {
+export class Discount {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 500 })
   name: string;
 
-  @Column({ length: 500 })
-  name1: string;
+  @Column()
+  discount: number;
 
   @ManyToOne((type) => User, (user) => user.orders)
-  Photo: Photo;
+  Discount: Discount;
 
   @Column({ default: 2 })
-  photoId: number;
+  discountId: number;
 }

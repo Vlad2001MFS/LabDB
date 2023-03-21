@@ -1,35 +1,35 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrder } from './entity/typeOrder.entity';
+import { statusOrder } from "./entity/statusOrder.entity";
 import { User } from './entity/user.entity';
 import { Order } from './entity/order.entity';
-import { Photo } from './entity/photo.entity';
-import { PhotoModule } from './PhotoModule/photo.module';
+import { Discount } from "./entity/discount.entity";
+import { DiscountModule } from './DiscountModule/discount.module';
 import { UserModule } from "./UserModule/user.module";
 import { OrderModule } from "./OrderModule/order.module";
-import { TypeModule } from "./TypeModule/type.module";
+import { StatusModule } from "./StatusModule/status.module";
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
-        entities: [Order, User, typeOrder, Photo],
+        entities: [Order, User, statusOrder, Discount],
         host: 'localhost',
         port: 5432,
         username: 'postgres',
         password: 'postgres',
-        database: 'stud',
+        database: 'labs',
         synchronize: true,
         cli: {
           entitiesDir: './entities',
         },
       }),
     }),
-    PhotoModule,
+    DiscountModule,
     UserModule,
     OrderModule,
-    TypeModule,
+    StatusModule,
   ],
   controllers: [],
   providers: [],

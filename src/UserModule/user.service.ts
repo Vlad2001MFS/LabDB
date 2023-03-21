@@ -24,9 +24,9 @@ export class UserService {
 
   async create(): Promise<User> {
     return this.userRepository.save({
-      name: 'Антон',
-      age: 22,
-      name3: 'Сизов',
+      name: 'Имя пользователя',
+      age: 19,
+      name3: 'Фамилия пользователя',
     });
   }
 }

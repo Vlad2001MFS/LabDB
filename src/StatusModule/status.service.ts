@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { typeOrder } from '../entity/typeOrder.entity';
+import { statusOrder } from '../entity/statusOrder.entity';
 
 @Injectable()
-export class TypeService {
+export class StatusService {
   constructor(
-    @InjectRepository(typeOrder)
-    private typeRepository: Repository<typeOrder>,
+    @InjectRepository(statusOrder)
+    private typeRepository: Repository<statusOrder>,
   ) {}
 
-  async findAll(): Promise<typeOrder[]> {
+  async findAll(): Promise<statusOrder[]> {
     return this.typeRepository.find();
   }
 
@@ -21,9 +21,9 @@ export class TypeService {
     }
   }
 
-  async create(): Promise<typeOrder> {
+  async create(): Promise<statusOrder> {
     return this.typeRepository.save({
-      name: 'Принят',
+      name: 'Заказ добавлен в работу',
     });
   }
 }

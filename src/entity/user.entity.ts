@@ -6,7 +6,7 @@ import {
   OneToOne,
 } from 'typeorm';
 import { Order } from './order.entity';
-import { Photo } from './photo.entity';
+import { Discount } from './discount.entity';
 
 @Entity('User')
 export class User {
@@ -24,11 +24,11 @@ export class User {
   @OneToMany((type) => Order, (order) => order.User)
   orders: Order[];
 
-  @OneToMany((type) => Photo, (photo=) => photo.Photo) // specify inverse side as a second parameter
-  Photo: Photo;
+  @OneToMany((type) => Discount, (dicount) => dicount.Discount)
+  Dicsount: Discount;
 
   @Column({
-    default: 'Tom',
+    default: 'Новочеркасск',
   })
-  name3: string;
+  city: string;
 }

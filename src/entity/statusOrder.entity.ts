@@ -2,14 +2,14 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "ty
 
 import { Order } from './order.entity';
 
-@Entity('typeOrder')
-export class typeOrder {
+@Entity('statusOrder')
+export class statusOrder {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 500 })
   name: string;
 
-  @OneToMany((type) => Order, (order) => order.TypesOrder)
+  @OneToMany((type) => Order, (order) => order.StatusOrder)
   orders: Order[];
 }

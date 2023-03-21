@@ -25,7 +25,7 @@ export class OrderService {
 
   async create(): Promise<Order> {
     return this.orderRepository.save({
-      name: 'Тестовый заказ_1',
+      name: 'Заказ лекарств',
     });
   }
 }
